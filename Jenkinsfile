@@ -1,28 +1,29 @@
 pipeline {
     agent any
 
-    stages{
+    stages {
 
-        stage('Verify git repo'){
+        stage('Verify git repo') {
             steps {
-                echo 'Git repo clone'  
+                echo 'Git repo cloned successfully'
             }
         }
 
-        stage('check and run docker'){
+        stage('Check Docker & Run Container') {
             steps {
                 sh 'docker --version'
-                sh 'docker compose -d up'
+                sh 'docker compose up -d'
             }
         }
 
-        stage('check the status'){
+        stage('Check the Status') {
             steps {
                 sh 'docker images'
                 sh 'docker ps | grep my_web'
             }
         }
     }
+
     post {
         success {
             echo "✅ NGINX deployed successfully using Jenkins"
