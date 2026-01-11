@@ -4,20 +4,20 @@ pipeline {
     stages{
 
         stage('Verify git repo'){
-            step {
+            steps {
                 echo 'Git repo clone'  
             }
         }
 
         stage('check and run docker'){
-            step {
+            steps {
                 sh 'docker --version'
                 sh 'docker compose -d up'
             }
         }
 
         stage(check the status){
-            step {
+            steps {
                 sh 'docker images'
                 sh 'docker ps | grep my_web'
             }
