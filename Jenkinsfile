@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-        stage(check the status){
+        stage('check the status'){
             steps {
                 sh 'docker images'
                 sh 'docker ps | grep my_web'
