@@ -1,12 +1,11 @@
 version: "3.8"
 
 services:
- nginx:
-   image: nginx:latest
-
-   container_name: my_web
-   ports:
-     - "8090:80"
-  volumes:
-    - /opt/pratice_repo/html:/usr/share/nginx/html
-   restart: always
+  nginx:
+    image: nginx:latest
+    container_name: my_web
+    ports:
+      - "8090:80"
+    volumes:
+      - /opt/practice_repo/html:/usr/share/nginx/html
+    restart: always
